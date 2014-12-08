@@ -15,10 +15,13 @@ var bibleApp = {
     return false;
   },
 
+  setInputFocus: function() {
+    (bibleApp.$inputBox).focus();
+  },
   //function to check whether to search or open Bible passage
   checkOption: function() {
-    bibleApp.$inputBox.focus();
     option = this.value;
+    bibleApp.setInputFocus();
     if(this.value==="search") {
       bibleApp.$button.attr("value", "Search");
       bibleApp.$inputBox.attr("placeholder", "In the beginning...");
@@ -121,6 +124,7 @@ $(document).ready(function() {
   scrollOpen = false;
   searchOpen = false;
   bibleApp.$searchList.hide();
+  bibleApp.$info.hover(bibleApp.setInputFocus);
   bibleApp.$searchOption.click(bibleApp.checkOption);
   bibleApp.$readOption.click(bibleApp.checkOption);
   bibleApp.$button.click(bibleApp.getData.bind(bibleApp));
