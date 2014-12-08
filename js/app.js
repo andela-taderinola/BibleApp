@@ -1,4 +1,3 @@
-var option;
 var bibleApp = {
   $searchOption: $("#search"),
   $readOption: $("#reference"),
@@ -18,7 +17,7 @@ var bibleApp = {
 
   //function to check whether to search or open Bible passage
   checkOption: function() {
-    console.log(this.value);
+    bibleApp.$inputBox.focus();
     option = this.value;
     if(this.value==="search") {
       bibleApp.$button.attr("value", "Search");
@@ -56,10 +55,10 @@ var bibleApp = {
       var callback = function(verse) {
         var display = '<div id="content">' + verse.text + '</div>';
         bibleApp.$scroll.html(display);
-        bibleApp.$scroll.width("50%").css("left", "10%");
         bibleApp.$inputBox.prop("disabled", false);
         bibleApp.$button.attr("disabled", false).val("Open");
         bibleApp.$info.text("Type a passage to open");
+        bibleApp.$scroll.width("50%").css("left", "10%");
       }; //end of callback
     }//end of if option = content
     else { //option= "search"
@@ -80,9 +79,7 @@ var bibleApp = {
         bibleApp.$inputBox.prop("disabled", false);
         bibleApp.$button.attr("disabled", false).val("Search");
         bibleApp.$info.text("Type text to search");
-        bibleApp.$searchList.slideDown("slow");
-        console.log(response);
-  
+        bibleApp.$searchList.slideDown("slow");  
       };
     }
     $.getJSON(url, data, callback).fail(bibleApp.failEvent);
@@ -90,7 +87,20 @@ var bibleApp = {
 
   //method to handle failure
   failEvent: function(error) {
-    bibleApp.$info.text("Looks like there's a little hiccup: (" + error.status + ":" + error.statusText + ").");
+    var errorMsg
+    if(error.status === 0) {
+      errorMsg = "Please check your internet connection.";
+    }
+    else if (error.status === 404) {
+      errorMsg = "Passage not found. Please check your input.";
+    }
+    else if (error.status === 500) {
+      errorMsg = "Server error. Please try again later.";
+    }
+    else {
+      errorMsg = "Looks like there's a little hiccup: (" + error.status + ":" + error.statusText + ")";
+    }
+    bibleApp.$info.text(errorMsg);
     bibleApp.$inputBox.prop("disabled", false);
     bibleApp.$button.attr("disabled", false).val("Retry");
   }
@@ -98,6 +108,7 @@ var bibleApp = {
 
 $(document).ready(function() {
   option = "search";
+  bibleApp.$searchList.hide();
   bibleApp.$searchOption.click(bibleApp.checkOption);
   bibleApp.$readOption.click(bibleApp.checkOption);
   bibleApp.$button.click(bibleApp.getData.bind(bibleApp));

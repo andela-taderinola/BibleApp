@@ -5,38 +5,49 @@ html, body {
 
 body {
   text-align: center;
-  padding-top: 1em;
+  padding-top: 0.5em;
   font-family: cursive;
   background: -webkit-linear-gradient(#000, #fff);
   background: -moz-linear-gradient(#000, #fff);
   background: -o-linear-gradient(#000, #fff);
-  color: #fff;
-/*  background: url('../img/inspiration.jpg') no-repeat;*/
+  color: #FFE4B5;
+  background: url('../img/HolyBible.jpg') no-repeat;
   background-size: cover;
 }
 
 #btn, #searchInput {
-/*  border: 3px #fff gold;*/
+  background: none;
+  border: 1px solid #FFE4B5;
   font-family: cursive;
   border-radius: 0.6em;
-  box-shadow: 0.2em 0.2em 0.2em gray;
+  box-shadow: 0.1em 0.1em 0.2em #FFE4B5;
+  color: #FFE4B5;
+  outline: none;
 }
 
 #btn {
   width: 8em;
   height: 3em;
   padding: 0.5em;
+  font-weight: bolder;
 }
 
 #btn:hover {
-  font-weight: bolder;
+  background: #fff;
+  box-shadow: none;
+  color: #000;
+  opacity: 0.5;
 }
 
 #searchInput {
   width: 16em;
   height: 1.7em;
   padding: 0.5em 1em;
-  outline: none;
+}
+
+#searchInput:hover {
+  border: 1px solid #fff;
+  box-shadow: none;
 }
 
 #options {
@@ -47,19 +58,22 @@ body {
 
 #info {
   display: block;
-  margin: 0.5em auto;
-  border: 2px solid #fff;
+  margin: 0.3em auto;
+  background: none;
+  border: 1px solid #FFE4B5;
+  border-radius: 1em;
   width: 30%;
   padding: 0.5em;
   font-size: 1em;
+  color: #FFE4B5;
 }
 
 #container, #searchListContainer {
   position: absolute;
   height: 65%;
-  top: 25%;
+  top: 21%;
   padding: 1em 1.4em 0.9em 1.6em;
-  line-height: 1.4; 
+  line-height: 1.4;
 }
 
 #container {
@@ -81,10 +95,10 @@ body {
 }
 
 #searchListContainer {
-  display: hidden;
   background: #fff;
   right: 1%;
-  max-width: 26%;
+  width: 28%;
+  height: 68%;
   overflow: hidden;
   text-align: left;
   background: url('../img/ancient_scroll_1600.png') no-repeat;
@@ -130,4 +144,39 @@ li {
 li p {
   color: black;
 }
- 
+
+a {
+  text-decoration: none;
+}
+
+#bibliaInfo a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 27%;
+  text-align: center;
+  font-size: 1em;
+  color: #fff;
+}
+
+.bibliaInfo {
+  display: inline-block;
+  font-size: 0.75em;
+}
+
+.bibliaInfo a {
+  color: lightblue;
+  font-weight: bolder;
+}
+
+.bibliaInfo img {
+  opacity: 0.5;
+}
+
+#searchHeader {
+  font-weight: bolder;
+  text-align: center;
+}
