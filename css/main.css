@@ -1,27 +1,133 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  background: gray;
-}
-
-.container {
   text-align: center;
-  padding: .5em 0 0;
+  padding-top: 1em;
+  font-family: cursive;
+  background: -webkit-linear-gradient(#000, #fff);
+  background: -moz-linear-gradient(#000, #fff);
+  background: -o-linear-gradient(#000, #fff);
+  color: #fff;
+/*  background: url('../img/inspiration.jpg') no-repeat;*/
+  background-size: cover;
 }
 
-img {
-  height: 15em;
-  width: 15em;
-  border-radius: 50%;
+#btn, #searchInput {
+/*  border: 3px #fff gold;*/
+  font-family: cursive;
+  border-radius: 0.6em;
+  box-shadow: 0.2em 0.2em 0.2em gray;
 }
 
-p {
-  font-family: Kalinga, sans-serif;
-  margin: 0.5em;
+#btn {
+  width: 8em;
+  height: 3em;
+  padding: 0.5em;
 }
 
-a {
-  text-decoration: none;
+#btn:hover {
+  font-weight: bolder;
 }
 
-a:hover {
-  text-decoration: underline;
-};
+#searchInput {
+  width: 16em;
+  height: 1.7em;
+  padding: 0.5em 1em;
+  outline: none;
+}
+
+#options {
+  display: block;
+  margin: 0.5em auto;
+  font-size: 0.8em;
+}
+
+#info {
+  display: block;
+  margin: 0.5em auto;
+  border: 2px solid #fff;
+  width: 30%;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+#container, #searchListContainer {
+  position: absolute;
+  height: 65%;
+  top: 25%;
+  padding: 1em 1.4em 0.9em 1.6em;
+  line-height: 1.4; 
+}
+
+#container {
+  transition: 2s ease-in-out 0.5s;
+  -webkit-transition: 2s ease-in-out 0.4s;
+  -moz-transition: 2s ease-in-out 0.4s;
+  -o-transition: 2s ease-in-out 0.4s;
+  z-index: 1;
+  width: 0.1%;
+  left: 1%;
+  opacity: 0.8;
+  text-align: center;
+  font-family: 'Modern Antiqua', cursive;
+  color: #000;
+  font-size: 1.5em;
+  font-weight: bold;
+  background: url('../img/scroll_background.png') no-repeat;
+  background-size: cover;
+}
+
+#searchListContainer {
+  display: hidden;
+  background: #fff;
+  right: 1%;
+  max-width: 26%;
+  overflow: hidden;
+  text-align: left;
+  background: url('../img/ancient_scroll_1600.png') no-repeat;
+  background-size: cover;
+  color: #000;
+  font-size: 0.8em;
+}
+
+#searchListContainer:hover {
+  overflow: scroll;
+  overflow-x: hidden; 
+}
+
+#content {
+  position: relative;
+  text-align: left;
+  padding: 0 0.8em;
+  top: 1%;
+  max-height: 96%;
+  width: 95%;
+  margin: auto;
+  overflow: hidden;
+}
+
+#content:hover {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.preview {
+  width: 99%;
+  z-index: 1;
+  transition: 2s ease-in-out 0.5s;
+  -webkit-transition: 2s ease-in-out 0.4s;
+  -moz-transition: 2s ease-in-out 0.4s;
+  -o-transition: 2s ease-in-out 0.4s;
+}
+
+li {
+  color: blue;
+}
+
+li p {
+  color: black;
+}
+ 

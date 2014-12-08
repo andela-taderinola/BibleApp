@@ -2,11 +2,24 @@
 <html>
   <meta charset="utf-8">
   <head>
+    <link href='http://fonts.googleapis.com/css?family=Modern+Antiqua' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta name="viewport" content="width=device-width initial-scale=1">
     <title>Word Feed</title>
   </head>
   <body>
-    <h1>App is under construction</h1>
+    <input type="text" id="searchInput" class="search" placeholder="In the beginning..." autofocus="autofocus">
+    <input type="button" id="btn" value="Search">
+    <span id="options">
+      <input type="radio" id="reference" value="content" name="options"><label for="reference">Read Passage</label>
+      <input type="radio" id="search" value="search" name="options" checked="true"><label for="search">Find in Bible</label>
+      <label id="info">Type text to search</label>
+    </span>
+    <div id="container">
+    </div>
+    <div id="searchListContainer">
+    </div>
     <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>
