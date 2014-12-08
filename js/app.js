@@ -58,7 +58,13 @@ var bibleApp = {
         bibleApp.$inputBox.prop("disabled", false);
         bibleApp.$button.attr("disabled", false).val("Open");
         bibleApp.$info.text("Type a passage to open");
-        bibleApp.$scroll.width("50%").css("left", "10%");
+        if(searchOpen) {
+          bibleApp.$scroll.width("44%").css("left", "1%");
+        }
+        else {
+          bibleApp.$scroll.width("50%").css("left", "12%");
+        }
+        scrollOpen = true;
       }; //end of callback
     }//end of if option = content
     else { //option= "search"
@@ -79,7 +85,11 @@ var bibleApp = {
         bibleApp.$inputBox.prop("disabled", false);
         bibleApp.$button.attr("disabled", false).val("Search");
         bibleApp.$info.text("Type text to search");
-        bibleApp.$searchList.slideDown("slow");  
+        bibleApp.$searchList.slideDown("slow");
+        if(scrollOpen) {
+          bibleApp.$scroll.width("44%").css("left", "1%");
+        }
+        searchOpen = true; 
       };
     }
     $.getJSON(url, data, callback).fail(bibleApp.failEvent);
@@ -108,6 +118,8 @@ var bibleApp = {
 
 $(document).ready(function() {
   option = "search";
+  scrollOpen = false;
+  searchOpen = false;
   bibleApp.$searchList.hide();
   bibleApp.$searchOption.click(bibleApp.checkOption);
   bibleApp.$readOption.click(bibleApp.checkOption);
